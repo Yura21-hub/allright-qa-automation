@@ -25,12 +25,24 @@ export class InventoryPage {
     return this.items.filter({ has: this.page.getByTestId('inventory-item-name').getByText(name, { exact: true }) });
   }
 
+  itemName(item: Locator) {
+    return item.getByTestId('inventory-item-name');
+  }
+
+  itemPrice(item: Locator) {
+    return item.getByTestId('inventory-item-price');
+  }
+
+  addButton(item: Locator) {
+    return item.getByRole('button', { name: 'Add to cart' });
+  }
+
   async viewItem(name: string) {
-    await this.item(name).getByTestId('inventory-item-name').click();
+    await this.itemName(this.item(name)).click();
   }
 
   async addItem(name: string) {
-    await this.item(name).getByRole('button', { name: 'Add to cart' }).click();
+    await this.addButton(this.item(name)).click();
   }
 
   async sortByLowestPrice() {

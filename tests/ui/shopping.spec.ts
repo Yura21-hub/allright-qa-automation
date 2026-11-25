@@ -11,15 +11,15 @@ const money = /^\$\d+\.\d{2}$/;
 test('catalog cards show product names, prices, and add buttons', async ({ inventory }) => {
   await ui.expectVisible(inventory.items.first());
   for (const item of await inventory.items.all()) {
-    await ui.expectText(item.getByTestId('inventory-item-name'), /\S/);
-    await ui.expectText(item.getByTestId('inventory-item-price'), money);
-    await ui.expectVisible(item.getByRole('button', { name: 'Add to cart' }));
+    await ui.expectText(inventory.itemName(item), /\S/);
+    await ui.expectText(inventory.itemPrice(item), money);
+    await ui.expectVisible(inventory.addButton(item));
   }
 });
 
 test('product details preserve the catalog name and price', async ({ inventory, page }) => {
   const item = inventory.item(backpack);
-  const price = item.getByTestId('inventory-item-price');
+  const price = inventory.itemPrice(item);
   await ui.expectText(price, money);
   const displayedPrice = await price.innerText();
   const details = new ProductDetailsPage(page);
@@ -71,7 +71,7 @@ test('removing a product updates the cart count and contents', async ({ inventor
 test('checkout shows the expected totals and confirms the order', async ({ inventory, page }) => {
   const cart = new CartPage(page);
   const checkout = new CheckoutPage(page);
-  const productPrice = inventory.item(backpack).getByTestId('inventory-item-price');
+  const productPrice = inventory.itemPrice(inventory.item(backpack));
   await ui.expectText(productPrice, money);
   const expectedSubtotal = Math.round(Number((await productPrice.innerText()).slice(1)) * 100);
 

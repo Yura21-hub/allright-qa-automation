@@ -1,13 +1,19 @@
 name: Playwright tests
 
-on: [push, workflow_dispatch]
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      setup_matrix:
+        description: Also verify the Windows, Linux, and macOS setup scripts
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 jobs:
   test:
-    if: github.event_name == 'push'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -30,7 +36,7 @@ jobs:
           retention-days: 14
 
   automated-setup:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && inputs.setup_matrix
     name: Automated setup on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20

@@ -21,6 +21,8 @@ Run the command for your OS from the project root.
 
 The scripts provision the pinned Node.js and its bundled npm when needed, install the locked npm packages, install Chromium and run both test projects. The Linux script also installs Chromium's OS packages. Downloaded runtimes are kept under `.devenv/` in the checkout. The browser is kept in the Playwright cache. A successful run exits with code 0. The HTML report is at `playwright-report/index.html`.
 
+The manual run and the automated setup were verified on macOS Apple Silicon. The automated check used a fresh checkout and an empty Playwright browser cache. The GitHub Actions manual run verifies the other setup launchers on their target operating systems.
+
 ## Manual setup
 
 npm is bundled with Node.js. Use the exact release recorded in [`.nvmrc`](.nvmrc) to match CI.

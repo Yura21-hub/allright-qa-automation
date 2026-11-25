@@ -1,8 +1,6 @@
 name: Playwright tests
 
-on:
-  push:
-  workflow_dispatch:
+on: [push, workflow_dispatch]
 
 permissions:
   contents: read
@@ -10,7 +8,7 @@ permissions:
 jobs:
   test:
     if: github.event_name == 'push'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
@@ -40,7 +38,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-24.04
             script: linux
           - os: windows-latest
             script: windows

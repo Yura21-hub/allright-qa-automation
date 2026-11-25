@@ -16,12 +16,12 @@ Run the command for your OS from the project root.
 | OS | Run | Prerequisites |
 | --- | --- | --- |
 | Windows | `bash devenv/windows.sh` | Windows 11 and Git Bash from Git for Windows, including its standard command-line tools. |
-| Linux | `bash devenv/linux.sh` | A [Playwright-supported Ubuntu or Debian version](https://playwright.dev/docs/intro#system-requirements), Bash, curl, and tar with xz support. Playwright may request sudo for system packages. |
+| Linux | `bash devenv/linux.sh` | Ubuntu 22.04 or 24.04, or Debian 12 or 13, with Bash, curl, and tar with xz support. Playwright may request sudo for system packages. |
 | macOS | `bash devenv/macos.sh` | Terminal on a [Playwright-supported macOS version](https://playwright.dev/docs/intro#system-requirements). Run from the cloned or extracted directory. |
 
 The scripts provision the pinned Node.js and its bundled npm when needed, install the locked npm packages, install Chromium and run both test projects. The Linux script also installs Chromium's OS packages. Downloaded runtimes are kept under `.devenv/` in the checkout. The browser is kept in the Playwright cache. A successful run exits with code 0. The HTML report is at `playwright-report/index.html`.
 
-The manual run and the automated setup were verified on macOS Apple Silicon. The automated check used a fresh checkout and an empty Playwright browser cache. The GitHub Actions manual run verifies the other setup launchers on their target operating systems.
+The automated setup was verified from a fresh checkout on macOS Apple Silicon and Windows Git Bash in GitHub Actions. The macOS check started with an empty Playwright browser cache. CI pins Ubuntu 24.04 because Playwright 1.59.1 cannot install Chromium on Ubuntu 26.04.
 
 ## Manual setup
 

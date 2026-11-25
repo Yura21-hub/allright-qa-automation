@@ -10,7 +10,9 @@
     "test:ui": "playwright test --project=ui",
     "test:api": "playwright test --project=api",
     "typecheck": "tsc --noEmit",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "generate:test": "node bonus/generate-test.mjs",
+    "test:generated": "playwright test --config bonus/playwright.config.ts bonus/examples"
   },
   "devDependencies": {
     "@playwright/test": "1.59.1",

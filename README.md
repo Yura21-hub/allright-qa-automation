@@ -96,6 +96,7 @@ To override a demo value, create an optional ignored `config/local.json`. The fi
 | `tests/support/` | Shared UI and API assertions and config loading. |
 | `config/`, `playwright.config.ts` | Demo targets, optional overrides, and Playwright projects. |
 | `devenv/` | Automated setup launchers and common bootstrap logic. |
+| `bonus/` | Markdown-to-Playwright generator, setup guide, and recorded examples. |
 | `.github/workflows/playwright-push.yml` | Starts the shared CI job on each push. |
 | `.github/workflows/playwright.yml` | Shared test, type-check, and report job, plus the optional manual setup matrix. |
 | `docs/ui-coverage.md`, `docs/api-coverage.md` | Coverage matrices, gaps, and follow-up scenarios. |
@@ -148,4 +149,4 @@ The [API reference](https://restful-booker.herokuapp.com/apidoc/) lists `firstna
 
 ## Bonus test generator
 
-The [bonus branch](https://github.com/Yura21-hub/allright-qa-automation/tree/bonus/test-generator/bonus) includes the headless Codex generator and three recorded examples.
+The [bonus guide](bonus/README.md) explains how to run the headless Codex generator and replay its three recorded examples.

@@ -14,6 +14,7 @@ Keep changes scoped. State assumptions and raise material ambiguities. Use stabl
 | `tests/support/` | Add reusable assertions or config loading. |
 | `config/` | Maintain public demo defaults and optional ignored local overrides. |
 | `devenv/` | Maintain automated first-run scripts and shared bootstrap logic. |
+| `bonus/` | Maintain the test generator and examples. Run `npm run test:generated` to replay the recorded specs. |
 | `.github/workflows/` | Maintain push-triggered tests and report artifacts. |
 | `docs/ui-coverage.md`, `docs/api-coverage.md` | Record coverage, open questions, and follow-up cases. |
 | `README.md`, `AI_WORKLOG.md` | Maintain reviewer setup instructions and the factual AI review log. |

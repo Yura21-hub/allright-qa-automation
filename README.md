@@ -21,7 +21,7 @@ Run the command for your OS from the project root.
 
 The scripts provision the pinned Node.js and its bundled npm when needed, install the locked npm packages, install Chromium and run both test projects. The Linux script also installs Chromium's OS packages. Downloaded runtimes are kept under `.devenv/` in the checkout. The browser is kept in the Playwright cache. A successful run exits with code 0. The HTML report is at `playwright-report/index.html`.
 
-The automated setup passed on macOS Apple Silicon from a fresh checkout and an empty Playwright browser cache, on Ubuntu 24.04 ARM64 in a fresh container, and on [Windows Git Bash in GitHub Actions](https://github.com/Yura21-hub/allright-qa-automation/actions/runs/45610809864/job/139193537816). Each run passed all 14 tests. CI pins Ubuntu 24.04 because Playwright 1.59.1 cannot install Chromium on Ubuntu 26.04.
+The automated setup passed on macOS Apple Silicon from a fresh checkout and an empty Playwright browser cache, on Ubuntu 24.04 ARM64 in a fresh container, and on Windows Git Bash in GitHub Actions. Each run passed all 14 tests. See the [green setup matrix and its three reports](https://github.com/Yura21-hub/allright-qa-automation/actions/runs/45611164242). CI pins Ubuntu 24.04 because Playwright 1.59.1 cannot install Chromium on Ubuntu 26.04.
 
 ## Manual setup
 
@@ -79,7 +79,7 @@ npm test
 
 Run `npm run test:ui` or `npm run test:api` for an individual project, `npm run typecheck` for static checking, and `npm run report` to open the latest HTML report. The API-only project can run after `npm ci` without installing Chromium.
 
-On GitHub, open **Actions → Playwright tests → a run → Artifacts**, download `playwright-report`, and extract it. From the project, run `npm run report -- /path/to/extracted/report` using the directory containing `index.html`. Failed UI tests include a screenshot and trace when available. The workflow's **Run workflow** button starts the automated setup on Ubuntu, Windows, and macOS, with a report for each OS.
+On GitHub, open **Actions → Playwright tests → a run → Artifacts**, download `playwright-report`, and extract it. From the project, run `npm run report -- /path/to/extracted/report` using the directory containing `index.html`. Failed UI tests include a screenshot and trace when available. Every push runs the suite on Ubuntu. Use **Run workflow** to start the same job manually. Enable **Also verify the Windows, Linux, and macOS setup scripts** to run the first-install check and generate an additional report for each OS.
 
 To override a demo value, create an optional ignored `config/local.json`. The file can contain a partial `ui` or `api` object with `baseURL`, `username`, or `password`. The repository only contains the published credentials for the two demo services.
 

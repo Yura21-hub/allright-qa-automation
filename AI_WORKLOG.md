@@ -2,7 +2,7 @@
 
 ## Agent and key prompts
 
-Codex implemented the assignment using the project instructions in [AGENTS.md](AGENTS.md). The prompts were translated or shortened for this log.
+Codex implemented the assignment using the project instructions in [AGENTS.md](AGENTS.md). The prompts below summarize the implementation brief.
 
 - Use Page Objects for login, catalog, product details, cart, and checkout, with an isolated browser context and shared sign-in fixture.
 - Add general-purpose UI and API assertions, keeping scenario-specific checks in the specs.

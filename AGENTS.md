@@ -1,6 +1,6 @@
 # Agent instructions
 
-Keep changes scoped and use English for code, documentation, test titles, and commit messages. State assumptions and raise material ambiguities. Use stable roles or `data-test` locators, Playwright web-first assertions, and independent test data. Verify the live API contract before asserting status codes. Only mutate bookings created by the current test and clean them up in the fixture. Keep actual credentials in ignored local configuration and record verified AI corrections as they occur.
+Keep changes scoped. State assumptions and raise material ambiguities. Use stable roles or `data-test` locators, Playwright web-first assertions, and independent test data. Verify the live API contract before asserting status codes. Only mutate bookings created by the current test and clean them up in the fixture. Keep actual credentials in ignored local configuration and record verified AI corrections as they occur.
 
 ## Repository map
 

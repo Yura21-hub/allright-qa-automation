@@ -127,3 +127,16 @@ The API suite covers the authenticated booking lifecycle and three credential or
 ```
 
 The [API reference](https://restful-booker.herokuapp.com/apidoc/) lists `firstname` for create requests. The [create route](https://github.com/mwinteringham/restful-booker/blob/main/routes/index.js#L290-L311) sends HTTP `500` when validation fails.
+
+### SD-1 Checkout confirms an empty order
+
+| Field | Details |
+| --- | --- |
+| Environment | Public SauceDemo, Chromium, `standard_user`, fresh browser context. |
+| Expected | Checkout is blocked because the cart is empty, with a message that asks the user to add an item. |
+| Actual | Checkout accepts the empty cart and displays **Thank you for your order!** after Finish. |
+
+1. Sign in as `standard_user` in a fresh browser context.
+2. Open the cart without adding a product, then select **Checkout**.
+3. Fill in the required customer fields and select **Continue**.
+4. Select **Finish** on the overview and observe the confirmation.

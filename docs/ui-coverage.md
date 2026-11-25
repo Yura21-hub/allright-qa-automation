@@ -15,7 +15,7 @@ The suite uses Chromium and the standard-user account. Add coverage for other so
 
 ## Observed behavior and discrepancies
 
-The direct inventory route redirects a signed-out visitor to login. The suite expects a required-field error for an empty postal code. Confirmed defects and reproduction steps are tracked in the [README](../README.md).
+The direct inventory route redirects a signed-out visitor to login. The suite expects a required-field error for an empty postal code. The demo also confirms an order from an empty cart. See the [checkout bug report](../README.md#sd-1-checkout-confirms-an-empty-order).
 
 ## Expansion criteria
 

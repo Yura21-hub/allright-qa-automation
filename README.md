@@ -142,3 +142,6 @@ The [API reference](https://restful-booker.herokuapp.com/apidoc/) lists `firstna
 2. Open the cart without adding a product, then select **Checkout**.
 3. Fill in the required customer fields and select **Continue**.
 4. Select **Finish** on the overview and observe the confirmation.
+
+## Bonus test generator
+The [bonus branch](https://github.com/Yura21-hub/allright-qa-automation/tree/bonus/test-generator/bonus) includes the headless Codex generator and three recorded examples.

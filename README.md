@@ -77,7 +77,7 @@ npm test
 
 Run `npm run test:ui` or `npm run test:api` for an individual project, `npm run typecheck` for static checking, and `npm run report` to open the latest HTML report. The API-only project can run after `npm ci` without installing Chromium.
 
-On GitHub, open **Actions → Playwright tests → a run → Artifacts**, download `playwright-report`, and extract it. From the project, run `npm run report -- /path/to/extracted/report` using the directory containing `index.html`. Failed UI tests include a screenshot and trace when available.
+On GitHub, open **Actions → Playwright tests → a run → Artifacts**, download `playwright-report`, and extract it. From the project, run `npm run report -- /path/to/extracted/report` using the directory containing `index.html`. Failed UI tests include a screenshot and trace when available. The workflow's **Run workflow** button starts the automated setup on Ubuntu, Windows, and macOS, with a report for each OS.
 
 To override a demo value, create an optional ignored `config/local.json`. The file can contain a partial `ui` or `api` object with `baseURL`, `username`, or `password`. The repository only contains the published credentials for the two demo services.
 

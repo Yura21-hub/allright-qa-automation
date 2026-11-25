@@ -1,7 +1,7 @@
 name: Playwright tests
 
 on:
-  push:
+  workflow_call:
   workflow_dispatch:
     inputs:
       setup_matrix:

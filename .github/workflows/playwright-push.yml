@@ -1,0 +1,10 @@
+name: Playwright on push
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  playwright:
+    uses: ./.github/workflows/playwright.yml

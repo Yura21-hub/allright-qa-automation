@@ -21,7 +21,7 @@ Run the command for your OS from the project root.
 
 The scripts provision the pinned Node.js and its bundled npm when needed, install the locked npm packages, install Chromium and run both test projects. The Linux script also installs Chromium's OS packages. Downloaded runtimes are kept under `.devenv/` in the checkout. The browser is kept in the Playwright cache. A successful run exits with code 0. The HTML report is at `playwright-report/index.html`.
 
-The automated setup was verified from a fresh checkout on macOS Apple Silicon and Windows Git Bash in GitHub Actions. The macOS check started with an empty Playwright browser cache. CI pins Ubuntu 24.04 because Playwright 1.59.1 cannot install Chromium on Ubuntu 26.04.
+The automated setup passed on macOS Apple Silicon from a fresh checkout and an empty Playwright browser cache, on Ubuntu 24.04 ARM64 in a fresh container, and on [Windows Git Bash in GitHub Actions](https://github.com/Yura21-hub/allright-qa-automation/actions/runs/45610809864/job/139193537816). Each run passed all 14 tests. CI pins Ubuntu 24.04 because Playwright 1.59.1 cannot install Chromium on Ubuntu 26.04.
 
 ## Manual setup
 

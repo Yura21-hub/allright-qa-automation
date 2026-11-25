@@ -27,6 +27,7 @@ test('product details preserve the catalog name and price', async ({ inventory, 
   await inventory.viewItem(backpack);
 
   await expect(page).toHaveURL(/\/inventory-item\.html\?id=\d+$/);
+  await ui.expectVisible(details.backToProducts);
   await ui.expectText(details.name, backpack);
   await ui.expectText(details.price, displayedPrice);
 });
@@ -34,8 +35,9 @@ test('product details preserve the catalog name and price', async ({ inventory, 
 test('price sorting rearranges every catalog price from low to high', async ({ inventory }) => {
   await ui.expectVisible(inventory.prices.first());
   const before = await inventory.prices.allTextContents();
-  const sorted = [...before].sort((left, right) => Number(left.slice(1)) - Number(right.slice(1)));
   expect(before.length).toBeGreaterThan(1);
+  for (const price of before) expect(price).toMatch(money);
+  const sorted = [...before].sort((left, right) => Number(left.slice(1)) - Number(right.slice(1)));
 
   await inventory.sortByLowestPrice();
 

@@ -79,7 +79,9 @@ npm test
 
 Run `npm run test:ui` or `npm run test:api` for an individual project, `npm run typecheck` for static checking, and `npm run report` to open the latest HTML report. The API-only project can run after `npm ci` without installing Chromium.
 
-On GitHub, open **Actions → Playwright tests → a run → Artifacts**, download `playwright-report`, and extract it. From the project, run `npm run report -- /path/to/extracted/report` using the directory containing `index.html`. Failed UI tests include a screenshot and trace when available. The workflow is configured to run the suite on Ubuntu on every push. The [standard CI run](https://github.com/Yura21-hub/allright-qa-automation/actions/runs/45612020678) shows the type check, test results, and HTML report. Use **Run workflow** to start the same job manually. Enable **Also verify the Windows, Linux, and macOS setup scripts** to run the first-install check and generate an additional report for each OS.
+Every push starts **Playwright on push** on Ubuntu. Open the [automatic CI run](https://github.com/Yura21-hub/allright-qa-automation/actions/runs/45615119600) or select **Actions → Playwright on push → a run → Artifacts**, download `playwright-report`, and extract it. From the project, run `npm run report -- /path/to/extracted/report` using the directory containing `index.html`. Failed UI tests include a screenshot and trace when available.
+
+For a manual run, select **Actions → Playwright tests → Run workflow**. Enable **Also verify the Windows, Linux, and macOS setup scripts** to run the first-install check and generate an additional report for each OS.
 
 To override a demo value, create an optional ignored `config/local.json`. The file can contain a partial `ui` or `api` object with `baseURL`, `username`, or `password`. The repository only contains the published credentials for the two demo services.
 
@@ -94,7 +96,8 @@ To override a demo value, create an optional ignored `config/local.json`. The fi
 | `tests/support/` | Shared UI and API assertions and config loading. |
 | `config/`, `playwright.config.ts` | Demo targets, optional overrides, and Playwright projects. |
 | `devenv/` | Automated setup launchers and common bootstrap logic. |
-| `.github/workflows/playwright.yml` | Push-triggered tests, type checking, and report upload. |
+| `.github/workflows/playwright-push.yml` | Starts the shared CI job on each push. |
+| `.github/workflows/playwright.yml` | Shared test, type-check, and report job, plus the optional manual setup matrix. |
 | `docs/ui-coverage.md`, `docs/api-coverage.md` | Coverage matrices, gaps, and follow-up scenarios. |
 | `AGENTS.md`, `AI_WORKLOG.md` | Agent instructions, prompts, and review findings. |
 
